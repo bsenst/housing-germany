@@ -10,6 +10,10 @@ The real estate market in Germany is dynamic and influenced by various factors s
 The objective of this project is to build a predictive model that can estimate the monthly rent for residential properties in Germany based on selected features.
 # Instructions
 
+```
+pip install -r requirements.txt
+```
+
 ## Explore Data with Notebook
 
 Open the `housing-eda.ipynb` notebook.
