@@ -6,10 +6,10 @@ import streamlit as st
 import requests
 
 # load the pickled model file
-if os.path.isfile("scripts/model.pkl"):
-    model = pickle.load(open('scripts/model.pkl', 'rb'))
+if os.path.isfile("../scripts/model.pkl"):
+    model = pickle.load(open('../scripts/model.pkl', 'rb'))
 else:
-    model = pickle.load(open('assets/model.pkl', 'rb'))
+    model = pickle.load(open('../assets/model.pkl', 'rb'))
 
 # Define a function to perform the prediction
 def predict_value(noRoomsRange, livingSpaceRange):
