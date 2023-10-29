@@ -7,6 +7,8 @@ The real estate market in Germany is dynamic and influenced by various factors s
 The objective of this project is to build a predictive model that can estimate the monthly rent for residential properties in Germany based on selected features.
 # Instructions
 
+## Dependency Management
+
 ```
 pip install -r requirements.txt
 ```
@@ -21,7 +23,7 @@ kaggle datasets download -d corrieaar/apartment-rental-offers-in-germany
 unzip apartment-rental-offers-in-germany.zip
 ```
 
-## Explore Data with Notebook
+## Explore Data (EDA) & Train Optimized Model with Notebook
 
 Open the `housing-eda.ipynb` notebook.
 
@@ -37,6 +39,8 @@ python scripts/train.py
 python scripts/predict.py
 ```
 
+# Model Deployment
+
 ## Run App
 
 ```
@@ -47,11 +51,13 @@ python flask app/flask_app.py
 streamlit run app/streamlit_app.py
 ```
 
-## Run App with Docker
+## Run Containerized App with Docker 
 
 ```
 docker build -t model_server .
 docker run -p 5000:5000 -p 8501:8501 model_server
 ```
+
+## Streamlit Cloud Deployed
 
 Visit the live app at [housing-germany.streamlit.app](https://www.streamlit.io)

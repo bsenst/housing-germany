@@ -5,11 +5,11 @@ FROM python:3.8-slim
 WORKDIR /app
 
 # Copy the Flask app files to the container
-COPY flask_app.py /app/
-COPY model.pkl /app/
+COPY app/flask_app.py /app/
+COPY assets/model.pkl /app/assets/
 
 # Install necessary packages
-RUN pip install flask scikit-learn pandas
+RUN pip install flask scikit-learn==1.2.2 pandas
 
 # Expose the port the app runs on
 EXPOSE 5000
@@ -17,17 +17,13 @@ EXPOSE 5000
 # Define environment variable
 ENV FLASK_APP flask_app.py
 
-# Command to run the Flask app
-CMD ["flask", "run", "--host", "0.0.0.0"]
-
 # Install Streamlit
 RUN pip install streamlit
 
 # Copy the Streamlit app files to the container
-COPY streamlit_app.py /app/
+COPY app/streamlit_app.py /app/
 
 # Expose the port for Streamlit
 EXPOSE 8501
 
-# Command to run the Streamlit app
-CMD ["streamlit", "run", "streamlit_app.py"]
+CMD ["bash", "-c", "streamlit run streamlit_app.py & flask run --host=0.0.0.0 --port=5000"]
