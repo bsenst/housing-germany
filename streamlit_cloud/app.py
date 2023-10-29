@@ -5,11 +5,13 @@ from flask import Flask, request, jsonify
 import streamlit as st
 import requests
 
+print(os.listdir())
+
 # load the pickled model file
-if os.path.isfile("../scripts/model.pkl"):
-    model = pickle.load(open('../scripts/model.pkl', 'rb'))
+if os.path.isfile("./scripts/model.pkl"):
+    model = pickle.load(open('./scripts/model.pkl', 'rb'))
 else:
-    model = pickle.load(open('../assets/model.pkl', 'rb'))
+    model = pickle.load(open('./assets/model.pkl', 'rb'))
 
 # Define a function to perform the prediction
 def predict_value(noRoomsRange, livingSpaceRange):
@@ -24,7 +26,6 @@ def predict_value(noRoomsRange, livingSpaceRange):
 
 # Streamlit UI
 st.title('Prediction App')
-st.write('Enter three numbers below:')
 
 # User input fields
 noRoomsRange = st.number_input('noRoomsRange [binned noRooms]', min_value=1, max_value=5, value=3, step=1)

@@ -3,7 +3,6 @@ import requests
 
 # Streamlit UI
 st.title('Prediction App')
-st.write('Enter three numbers below:')
 
 # User input fields
 noRoomsRange = st.number_input('noRoomsRange [binned noRooms]', min_value=1, max_value=5, value=3, step=1)
@@ -17,8 +16,6 @@ if st.button('Submit'):
     if response.status_code == 200:
         prediction = response.json()['prediction']
         st.write(f'Predicted baseRent: {round(prediction,1)}')
-
-
 
     else:
         st.write('Error predicting value. Please try again.')
