@@ -37,6 +37,16 @@ python scripts/train.py
 python scripts/predict.py
 ```
 
+## Run App
+
+```
+python flask app/flask_app.py
+```
+
+```
+streamlit run app/streamlit_app.py
+```
+
 ## Run App with Docker
 
 ```
